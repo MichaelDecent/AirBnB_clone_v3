@@ -29,6 +29,8 @@ class TestFileStorageDocs(unittest.TestCase):
     def setUpClass(cls):
         """Set up for the doc tests"""
         cls.fs_f = inspect.getmembers(FileStorage, inspect.isfunction)
+        user1 = User()
+        state1 = State()
 
     def test_pep8_conformance_file_storage(self):
         """Test that models/engine/file_storage.py conforms to PEP8."""
@@ -113,3 +115,19 @@ class TestFileStorage(unittest.TestCase):
         with open("file.json", "r") as f:
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
+
+    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    def test_count_all_objects(self):
+        """ Test counting all objects """
+        storage = FileStorage()
+        count = storage.count()
+        expected_count = storage.all()
+        self.assertEqual(count, len(expected_count))
+
+    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    def test_count_objects_by_class(self):
+        """ Test counting objects of a specific class"""
+        storage = FileStorage()
+        count = storage.count(State)
+        expected_count = storage.all(State)
+        self.assertEqual(count, len(expected_count))
