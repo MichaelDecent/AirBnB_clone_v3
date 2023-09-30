@@ -74,22 +74,21 @@ class FileStorage:
         obj_dict = self.all(cls)
         if obj_dict:
             obj_data = [ob for ob in obj_dict.values()]
-            obj = next((ob for ob in obj_data if ob.id == id), None)
+            obj = next((ob for ob in obj_data if ob['id'] == id), None)
             return obj
         return None
 
     def count(self, cls=None):
         """Returns the number of objects in storage matching the given class
         If no class is passed, returns the count of all objects in storage"""
-
         count = 0
         if cls == None:
             obj_dict = self.all()
-            while obj_dict:
-                count = count + 1
+            for count in range(len(obj_dict)):
+                count += 1
         else:
             obj_dict = self.all(cls)
-            while obj_dict:
-                count = count + 1
+            for count in range(len(obj_dict)):
+                count += 1
         return count
 
