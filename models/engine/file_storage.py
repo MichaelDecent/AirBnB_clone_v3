@@ -75,9 +75,9 @@ class FileStorage:
         and its ID, or None if not found
         """
         if cls:
-            for key in self.__objects.keys():
-                if id in key:
-                    return self.__objects[key]
+            for obj in self.__objects.values():
+                if id in obj.id:
+                    return obj
             return None
 
     def count(self, cls=None):
