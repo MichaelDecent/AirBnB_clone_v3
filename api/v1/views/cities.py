@@ -58,7 +58,8 @@ def post_cities(state_id):
     if required_key not in json_request:
         make_response(400, 'Missing Name')
 
-    city = City(state_id=state_id, **json_request)
+    city = City(**json_request)
+    city.state_id = state_id
     city.save()
     return make_response(jsonify(city.to_dict()), 201)
 
