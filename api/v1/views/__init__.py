@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""This module defines a blueprint"""
+"""
+This module defines  Blueprint
+"""
 from flask import Blueprint
+
 
 app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
 

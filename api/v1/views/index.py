@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" this Module handles all route endpoints """
+"""
+This Module handles all route endpoints
+"""
 from api.v1.views import app_views
 from flask import jsonify
 from models import storage
