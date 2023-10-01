@@ -54,9 +54,9 @@ def post_cities(state_id):
         abort(404)
     json_request = request.get_json()
     if not json_request:
-        make_response(400, 'Not a JSON')
+        make_response(400, "Not a JSON")
     if required_key not in json_request:
-        make_response(400, 'Missing Name')
+        make_response(400, "Missing Name")
 
     city = City(state_id=state_id, **json_request)
     city.save()
@@ -71,7 +71,7 @@ def put_city(city_id):
         abort(404)
     json_request = request.get_json()
     if not json_request:
-        make_response(400, 'Not a JSON')
+        make_response(400, "Not a JSON")
 
     ignore_keys = ['id', 'state_id', 'created_at', 'updated_at']
     for key, value in json_request.items():
