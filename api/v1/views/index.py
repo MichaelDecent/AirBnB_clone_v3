@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This Module handles all route endpoints
+This Module handles the status route endpoint
 """
 from api.v1.views import app_views
 from flask import jsonify
