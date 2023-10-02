@@ -3,7 +3,7 @@
 This Module contains Amenity objects
 that handles all default RESTFul API actions
 """
-from falsk import Flask, abort, make_response, request, jsonify
+from flask import Flask, abort, make_response, request, jsonify
 from models.amenity import Amenity
 from models import storage
 from api.v1.views import app_views
@@ -15,7 +15,7 @@ def get_amenities():
     amenities_list = [obj.to_dict() for obj in storage.all(Amenity).values()]
     return jsonify(amenities_list)
 
-@app_views('/amenities/<amenity_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/amenities/<amenity_id>', methods=['GET'], strict_slashes=False)
 def get_amenity(amenity_id):
     """This retrieves the an amenity based of its ID """
     amenity = storage.get(Amenity, amenity_id)
@@ -27,9 +27,9 @@ def get_amenity(amenity_id):
 @app_views.route('/amenities/<amenity_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_amenity(amenity_id):
-    """Deletes a state object based on a given ID"""
+    """Deletes a amenity object based on a given ID"""
     amenity = storage.get(Amenity, amenity_id)
-    if state is None:
+    if amenity is None:
         abort(404)
     storage.delete(amenity)
     storage.save()
@@ -53,9 +53,9 @@ def post_amenity():
 
 
 @app_views.route('/amenities/<amenity_id>', methods=['PUT'], strict_slashes=False)
-def put_state(amenity_id):
+def put_amenity(amenity_id):
     """ this update an amenity object based on its amenity ID"""
-    amenity = storage.get(Amenity, state_id)
+    amenity = storage.get(Amenity, amenity_id)
     if amenity is None:
         abort(404)
     request_json = request.get_json()
