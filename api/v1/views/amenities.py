@@ -4,7 +4,7 @@ This Module contains Amenity objects
 that handles all default RESTFul API actions
 """
 from falsk import Flask, abort, make_response, request, jsonify
-from models.amenity, import Amenity
+from models.amenity import Amenity
 from models import storage
 from api.v1.views import app_views
 
