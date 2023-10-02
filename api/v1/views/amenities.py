@@ -15,6 +15,7 @@ def get_amenities():
     amenities_list = [obj.to_dict() for obj in storage.all(Amenity).values()]
     return jsonify(amenities_list)
 
+
 @app_views.route('/amenities/<amenity_id>',
                  methods=['GET'], strict_slashes=False)
 def get_amenity(amenity_id):
