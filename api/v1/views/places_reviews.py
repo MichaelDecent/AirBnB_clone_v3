@@ -59,7 +59,7 @@ def post_review(place_id):
     required_keys = ['user_id', 'text']
     if required_keys[0] not in json_request:
         abort(400, 'Missing user_id')
-    if storage.get(User, json_request['text']) is None:
+    if storage.get(User, json_request['user_id']) is None:
         abort(404)
     if required_keys[1] not in json_request:
         abort(400, 'Missing text')
