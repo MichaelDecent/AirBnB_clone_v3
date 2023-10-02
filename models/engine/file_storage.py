@@ -78,13 +78,13 @@ class FileStorage:
             return None
 
         all_cls = models.storage.all(cls)
-        obj = next((value for value in all_cls.values() if value.id == id), None)
+        obj = next((value for value in
+                    all_cls.values() if value.id == id), None)
         return obj
 
     def count(self, cls=None):
         """Returns the number of objects in storage matching the given class
         If no class is passed, returns the count of all objects in storage"""
-        all_class = classes.values()
 
         if not cls:
             return len(models.storage.all())
