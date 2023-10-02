@@ -15,7 +15,8 @@ def get_amenities():
     amenities_list = [obj.to_dict() for obj in storage.all(Amenity).values()]
     return jsonify(amenities_list)
 
-@app_views.route('/amenities/<amenity_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/amenities/<amenity_id>',
+                 methods=['GET'], strict_slashes=False)
 def get_amenity(amenity_id):
     """This retrieves the an amenity based of its ID """
     amenity = storage.get(Amenity, amenity_id)
@@ -52,7 +53,8 @@ def post_amenity():
     return make_response(jsonify(amenity.to_dict()), 201)
 
 
-@app_views.route('/amenities/<amenity_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/amenities/<amenity_id>',
+                 methods=['PUT'], strict_slashes=False)
 def put_amenity(amenity_id):
     """ this update an amenity object based on its amenity ID"""
     amenity = storage.get(Amenity, amenity_id)
