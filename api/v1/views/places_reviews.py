@@ -62,7 +62,7 @@ def post_review(place_id):
     if storage.get(User, json_request['text']) is None:
         abort(404)
     if required_keys[1] not in json_request:
-        abort(400, 'Missing name')
+        abort(400, 'Missing text')
     review = Review(place_id=place_id, **json_request)
     review.save()
     return make_response(jsonify(review.to_dict()), 201)
