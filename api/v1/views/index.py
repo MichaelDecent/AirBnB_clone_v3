@@ -30,7 +30,7 @@ def status():
 
 @app_views.route('/stats')
 def object_no():
-    """ retrieves the number of each objects by type """
+    """ retrieves the number of each objects based on its type """
     objs_count = {}
     for key, cls in classes.items():
         n = storage.count(cls)
