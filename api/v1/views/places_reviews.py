@@ -49,7 +49,7 @@ def delete_review(review_id):
                  methods=['POST'], strict_slashes=False)
 def post_review(place_id):
     """*********************"""
-    place = storage.get(Place, Place_id)
+    place = storage.get(Place, place_id)
     if place is None:
         abort(404)
     json_request = request.get_json()
