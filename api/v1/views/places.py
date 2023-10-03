@@ -96,8 +96,8 @@ def put_place(place_id):
 @app_views.route('/places_search', methods=['POST'], strict_slashes=False)
 def place_search():
     """
-    Retrieves all Place objects depending of the
-    JSON in the body of the request 
+    Retrieves all Place objects depending of the JSON in the
+    body of the request 
     """
     json_request = request.get_json()
     if not json_request:
