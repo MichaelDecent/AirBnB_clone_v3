@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-This Module contains Place objects that handles
-all default RESTFul API actions
-"""
+""" objects that handle all default RestFul API actions for Places """
+
 from flask import request, abort, jsonify, make_response
 from api.v1.views import app_views
 from models import storage
