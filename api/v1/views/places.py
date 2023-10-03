@@ -99,7 +99,7 @@ def put_place(place_id):
 def place_search():
     json_request = request.get_json()
     if not json_request:
-        abort(404)
+        abort(400, 'Not a JSON')
     
     check_key = 0
     for val in json_request.values():
