@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This Module contains Place objects that
-handles all default RESTFul API actions
+"""This Module contains Place objects that handles all default RESTFul API actions
 """
 from flask import request, abort, jsonify, make_response
 from api.v1.views import app_views
@@ -94,6 +92,7 @@ def put_place(place_id):
             setattr(place, key, value)
     storage.save()
     return make_response(jsonify(place.to_dict()), 200)
+
 
 @app_views.route('/places_search', methods=['POST'], strict_slashes=False)
 def place_search():
