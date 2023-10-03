@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module runs my API
+This script runs a Flask API.
 """
 from flask import Flask, make_response, jsonify
 from flask_cors import CORS
@@ -18,13 +18,17 @@ CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def close_storage(self):
-    """This closes the database session"""
+    """
+    This closes the database session
+    """
     storage.close()
 
 
 @app.errorhandler(404)
 def not_found(error):
-    """returns a customized error message"""
+    """
+    Returns a customized error message for 404 Not Found.
+    """
     return make_response(jsonify({"error": 'Not found'}), 404)
 
 
