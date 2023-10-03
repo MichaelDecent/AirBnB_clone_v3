@@ -5,9 +5,10 @@ Amenity objects that handles all default RESTFul API actions
 """
 from flask import abort, make_response, jsonify
 from api.v1.views import app_views
-from models import storage, storage_t
+from models import storage
 from models.amenity import Amenity
 from models.place import Place
+from os import environ
 
 
 @app_views.route('places/<palce_id>/amenities', methods=['GET'], strict_slashes=False)
@@ -16,7 +17,7 @@ def get_place_amenities(place_id):
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
-    if storage_t == "db":
+    if environ.get('HBNB_TYPE_STORAGE') == "db":
         amenities_list = [obj.to_dict() for obj in place.amenities]
     else:
         amenities_list = [storage.get(Amenity, amenity_id).to_dict() for amenity_id in place.amenity_ids]
@@ -30,7 +31,7 @@ def delete_place_amenity(place_id, amenity_id):
     amenity = storage.get(Amenity, amenity_id)
     if place is None or amenity is None:
         abort(404)
-    if storage_t == "db":
+    if environ.get('HBNB_TYPE_STORAGE') == "db":
         if amenity not in place.amenities:
             abort(404)
         place.amenities.remove(amenity)
