@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" This Module contains Place objects that handles all default RESTFul API actions """
+"""
+This Module contains Place objects that handles
+all default RESTFul API actions
+"""
 from flask import request, abort, jsonify, make_response
 from api.v1.views import app_views
 from models import storage
@@ -97,12 +100,12 @@ def put_place(place_id):
 def place_search():
     """
     Retrieves all Place objects depending of the JSON in the
-    body of the request 
+    body of the request
     """
     json_request = request.get_json()
     if not json_request:
         abort(400, 'Not a JSON')
-    
+
     check_key = 0
     for val in json_request.values():
         if len(val) != 0:
@@ -132,7 +135,7 @@ def place_search():
                     abort(404)
                 for place in city.places:
                     places_list.append(place.to_dict())
-        
+
         if key == "amenities" and len(value) != 0 and len(places_list) == 0:
             list_places = [place for place in storage.all(Place).values()]
             amenities_list = [q for obj in storage.all(Amenity).values()]
@@ -141,4 +144,4 @@ def place_search():
                     if amenity in place.amenities:
                         places_list.append(place.to_dict())
 
-    return jsonify(places_list)             
+    return jsonify(places_list)
