@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This Module contains a view for state objects
-"""
+""" This Module contains a view for state objects """
 from flask import jsonify, abort, request, make_response
 from api.v1.views import app_views
 from models.state import State
@@ -54,7 +52,7 @@ def post_states():
 
 @app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
 def put_state(state_id):
-    """ this update a state object based on its state ID"""
+    """ This update a state object based on its state ID"""
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
