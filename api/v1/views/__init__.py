@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This module defines  Blueprint
-"""
+""" This module defines  Blueprint """
 from flask import Blueprint
 
 
