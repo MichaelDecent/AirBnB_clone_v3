@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-starts a Flask web application
+This script starts a Flask web application.
 """
 
 from flask import Flask
@@ -9,13 +9,17 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def index():
-    """returns Hello HBNB!"""
+    """
+    Returns a greeting message: Hello HBNB!
+    """
     return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """returns HBNB"""
+    """
+    Returns the text 'HBNB'.
+    """
     return 'HBNB'
 
 if __name__ == '__main__':
