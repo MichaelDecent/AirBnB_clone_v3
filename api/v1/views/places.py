@@ -114,7 +114,6 @@ def place_search():
 
     print (json_request)
     places_list = []
-    amenities_list = [obj.to_dict() for obj in storage.all(Amenity).values()]
     for key, value in json_request.items():
         if key == "states" and len(value) != 0:
             for id in value:
@@ -135,6 +134,7 @@ def place_search():
         
         if key == "amenities" and len(value) != 0 and len(places_list) == 0:
             list_places = [place for place in storage.all(Place).values()]
+            amenities_list = [q for obj in storage.all(Amenity).values()]
             for place in list_places:
                 for amenity in amenities_list:
                     if amenity in place.amenities:
