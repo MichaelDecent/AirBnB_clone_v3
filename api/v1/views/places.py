@@ -112,7 +112,6 @@ def place_search():
         places_list = [place.to_dict() for place in places.values()]
         return jsonify(places_list)
 
-    print (json_request)
     places_list = []
     for key, value in json_request.items():
         if key == "states" and len(value) != 0:
