@@ -10,7 +10,7 @@ from api.v1.views import app_views
 
 @app_views.route('/amenities', methods=['GET'], strict_slashes=False)
 def get_amenities():
-    """retrieves a list all amenities objects """
+    """retrieves a list all amenities objects"""
     amenities_list = [obj.to_dict() for obj in storage.all(Amenity).values()]
     return jsonify(amenities_list)
 
