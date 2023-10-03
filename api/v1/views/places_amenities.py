@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This Module contains a view that Place objects and Amenity objects that handles all default RESTFul API actions
+This Module contains a view that Place objects and Amenity
+objects that handles all default RESTFul API actions
 """
 from flask import abort, make_response, jsonify
 from api.v1.views import app_views
