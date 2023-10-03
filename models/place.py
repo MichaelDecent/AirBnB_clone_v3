@@ -80,7 +80,7 @@ class Place(BaseModel, Base):
         @amenities.setter
         def amenities(self, obj):
             """adds new IDs to amenities list for a place"""
-            if type(obj) != = Amenity:
+            if type(obj) != Amenity:
                 raise TypeError("Amenity must be an Amenity object")
 
             if obj.id not in self.amenity_ids:
