@@ -76,3 +76,13 @@ class Place(BaseModel, Base):
                 if amenity.place_id == self.id:
                     amenity_list.append(amenity)
             return amenity_list
+
+        @amenities.setter
+        def amenities(self, obj):
+            """adds new IDs to amenities list for a place"""
+            if type(obj) != = Amenity:
+                raise TypeError("Amenity must be an Amenity object")
+
+            if obj.id not in self.amenity_ids:
+                self.amenity_ids.append(obj.id)
+                setattr(self, "amenity_ids", self.amenity_ids)
