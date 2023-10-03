@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This Module contains City objects
-that handles all default RESTFul API actions
+This Module contains City objects that handles all default RESTFul API actions
 """
 from flask import Flask, abort, make_response, request, jsonify
 from models.city import City
