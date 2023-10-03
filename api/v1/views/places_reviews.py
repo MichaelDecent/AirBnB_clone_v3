@@ -14,7 +14,9 @@ from models.user import User
 @app_views.route('/places/<place_id>/reviews',
                  methods=['GET'], strict_slashes=False)
 def get_reviews(place_id):
-    """********"""
+    """
+    Retrieve reviews for a place.
+    """
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
@@ -26,7 +28,9 @@ def get_reviews(place_id):
 
 @app_views.route('reviews/<review_id>', methods=['GET'], strict_slashes=False)
 def get_review(review_id):
-    """**************"""
+    """
+    Retrieve a specific review by ID.
+    """
     review = storage.get(Review, review_id)
     if review is None:
         abort(404)
@@ -36,7 +40,9 @@ def get_review(review_id):
 @app_views.route('reviews/<review_id>',
                  methods=['DELETE'], strict_slashes=False)
 def delete_review(review_id):
-    """*****************"""
+    """
+    Delete a review by ID.
+    """
     review = storage.get(Review, review_id)
     if review is None:
         abort(404)
@@ -48,7 +54,9 @@ def delete_review(review_id):
 @app_views.route('/places/<place_id>/reviews',
                  methods=['POST'], strict_slashes=False)
 def post_review(place_id):
-    """*********************"""
+    """
+    Create a new review for a place.
+    """
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
@@ -70,7 +78,9 @@ def post_review(place_id):
 
 @app_views.route('reviews/<review_id>', methods=['PUT'], strict_slashes=False)
 def put_review(review_id):
-    """******************"""
+    """
+    Update a review by ID.
+    """
     review = storage.get(Review, review_id)
     if review is None:
         abort(404)
