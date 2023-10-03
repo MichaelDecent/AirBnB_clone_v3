@@ -14,7 +14,9 @@ from models.user import User
 @app_views.route('/cities/<city_id>/places',
                  methods=['GET'], strict_slashes=False)
 def get_places(city_id):
-    """Retrieves the list of all Place objects of a City"""
+    """
+    Retrieves the list of all Place objects of a City
+    """
     city = storage.get(City, city_id)
     if city is None:
         abort(404)
@@ -26,7 +28,9 @@ def get_places(city_id):
 
 @app_views.route('places/<place_id>', methods=['GET'], strict_slashes=False)
 def get_place(place_id):
-    """Retrieves a place based on its ID"""
+    """
+    Retrieves a place based on its ID
+    """
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
@@ -35,7 +39,9 @@ def get_place(place_id):
 
 @app_views.route('places/<place_id>', methods=['DELETE'], strict_slashes=False)
 def delete_place(place_id):
-    """delete a place ob based on its ID"""
+    """
+    Delete a place ob based on its ID
+    """
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
@@ -47,7 +53,9 @@ def delete_place(place_id):
 @app_views.route('/cities/<city_id>/places',
                  methods=['POST'], strict_slashes=False)
 def post_places(city_id):
-    """create a place for a particular ID """
+    """
+    Create a place for a particular ID
+    """
     city = storage.get(City, city_id)
     if city is None:
         abort(404)
@@ -69,7 +77,9 @@ def post_places(city_id):
 
 @app_views.route('places/<place_id>', methods=['PUT'], strict_slashes=False)
 def put_place(place_id):
-    """Updated a place attributes based on its ID"""
+    """
+    Updated a place attributes based on its ID
+    """
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
