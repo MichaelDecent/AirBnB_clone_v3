@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This script runs a Flask API."""
+""" This script runs a Flask API """
 from flask import Flask, make_response, jsonify
 from flask_cors import CORS
 from models import storage
