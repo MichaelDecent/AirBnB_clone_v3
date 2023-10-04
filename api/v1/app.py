@@ -16,17 +16,13 @@ CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def close_storage(self):
-    """
-    This closes the database session
-    """
+    """ This closes the database session """
     storage.close()
 
 
 @app.errorhandler(404)
 def not_found(error):
-    """
-    Returns a customized error message for 404 Not Found.
-    """
+    """ Returns a customized error message for 404 Not Found """
     return make_response(jsonify({"error": 'Not found'}), 404)
 
 
