@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" This module defines  Blueprint for API """
+"""
+This module defines Blueprint for API
+"""
 from flask import Blueprint
 
 
