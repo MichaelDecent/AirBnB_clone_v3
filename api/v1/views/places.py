@@ -94,12 +94,12 @@ def put_place(place_id):
     return make_response(jsonify(place.to_dict()), 200)
 
 
-@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
+"""@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
 def place_search():
-    """
+    
     Retrieves all Place objects depending of the JSON in the
     body of the request
-    """
+    
     json_request = request.get_json()
     if not json_request:
         abort(400, 'Not a JSON')
@@ -142,4 +142,4 @@ def place_search():
                     if amenity in place.amenities:
                         places_list.append(place.to_dict())
 
-    return jsonify(places_list)
+    return jsonify(places_list)"""
